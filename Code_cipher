@@ -1,0 +1,30 @@
+## Welcome, 
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+print("Hello in Piecrypting program based on Caesar cipher!\n")
+program = True
+while program:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
+
+    def cryptic_message(initial_text,shift_number,cryptic_direction):
+        outcome = ""
+        if cryptic_direction == "decode":
+            shift_number *= -1
+        for char in initial_text:
+            if char in alphabet:
+                position = alphabet.index(char)
+                new_pos = shift_number + position
+                outcome += alphabet[new_pos]
+            else:
+                outcome += char
+        print(f"The {direction}d message is {outcome}\n")
+            
+    cryptic_message(initial_text = text, shift_number = shift, cryptic_direction = direction)
+    option = input("Do you want to restart the program type 'yes' or 'no'?\n").lower()
+
+    if option == "no":
+        print("Bye!")
+        program = False
+## Ende! ##
